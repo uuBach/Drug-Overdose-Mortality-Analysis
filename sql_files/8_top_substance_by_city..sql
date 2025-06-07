@@ -196,7 +196,8 @@ drug,
 death_count
 FROM rn_cte
 WHERE rn = 1
-
+AND city IS NOT NULL
+AND city != '6340'
 -- Insights:
 -- 1. Fentanyl is the most common substance involved in fatal overdoses across most cities, often by a wide margin.
 -- 2. Cities like Hartford, New Haven, and Bridgeport show high counts not only for fentanyl but also for any_opioid and heroin, suggesting frequent multi-drug overdoses.
