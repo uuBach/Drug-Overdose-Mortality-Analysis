@@ -3,15 +3,15 @@
 -- It helps detect geographic hotspots where intervention and resources may be most urgently needed.
 
 SELECT
-death_city,
-COUNT(*) AS deaths
+    death_city,
+    COUNT(*) AS deaths
 FROM victim_profiles
 WHERE
-death_city IS NOT NULL
+    death_city IS NOT NULL
 GROUP BY
-death_city
+    death_city
 ORDER BY
-deaths DESC
+    deaths DESC
 
 -- Insights:
 -- 1. Hartford reports the highest number of overdose deaths among all cities, indicating a critical hotspot.

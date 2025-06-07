@@ -3,13 +3,13 @@
 -- and counts the number of overdose deaths per month. 
 
 SELECT
-EXTRACT(MONTH FROM date) AS month,
-COUNT(*) AS deaths
+    EXTRACT(MONTH FROM date) AS month,
+    COUNT(*) AS deaths
 FROM victim_profiles
 GROUP BY
-EXTRACT(MONTH FROM date)
+    EXTRACT(MONTH FROM date)
 ORDER BY
-deaths DESC
+    deaths DESC
 
 -- Insights:
 -- 1. The summer months (June–August) and November–July tend to have slightly higher overdose death counts.
