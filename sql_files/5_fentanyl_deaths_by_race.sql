@@ -1,3 +1,7 @@
+-- Query: Fentanyl-Related Deaths by Race
+-- Description: This query calculates the number and percentage of deaths 
+-- involving fentanyl within each racial group based on toxicology data.
+
 WITH race_and_id AS
 (
     SELECT 
@@ -39,3 +43,7 @@ JOIN total_deaths_cte
 ON total_deaths_cte.race = fentanyl_deaths_cte.race
 ORDER BY
 fentanyl_deaths_percentage DESC 
+
+-- Insights:
+-- 1. The majority of racial groups exhibit fentanyl involvement in over 75% of deaths.
+-- 2. The disparity in fentanyl-related mortality across racial groups is significant.

@@ -1,3 +1,7 @@
+-- Query: Opioid-Related Deaths by Age Group
+-- Description: Categorizes victims into age groups (teen, adult, elderly),
+-- and calculates the percentage of deaths involving any opioid in each group.
+
 WITH age_groups_cte AS
 (
     SELECT 
@@ -43,3 +47,8 @@ ROUND(opioid_deaths_cte.opioid_deaths * 100.0 / total_deaths_cte.total_deaths, 2
 FROM opioid_deaths_cte
 JOIN total_deaths_cte 
 ON opioid_deaths_cte.age_groups = total_deaths_cte.age_groups
+
+-- Insights:
+-- 1. The elderly group has the highest opioid-involvement rate (75.27%).
+-- 2. Adults are the most affected group in total count (5613 deaths).
+-- 3. Teens show a lower proportion but still significant opioid involvement (65.31%).

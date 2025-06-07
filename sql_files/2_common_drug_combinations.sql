@@ -1,3 +1,7 @@
+-- Query: Most Common Drug Combinations in Overdose Cases
+-- Description: This query identifies and ranks the most frequent combinations of substances
+-- found together in a single overdose case (i.e., when 2 or more substances tested positive).
+
 WITH combinations AS(
 SELECT
 (
@@ -84,3 +88,8 @@ FROM combinations
 GROUP BY drug_names
 ORDER BY
 deaths DESC
+
+-- Insights:
+-- 1. Fentanyl is commonly found alongside heroin and other opioids.
+-- 2. Polydrug use is frequent—many deaths involve multiple substances.
+-- 3. The combinations involving both legal and illegal drugs (e.g., fentanyl + ethanol) are notable.

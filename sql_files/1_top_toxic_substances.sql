@@ -1,3 +1,6 @@
+-- Query: Top Substances Detected in Overdose Deaths
+-- Description: This query counts the number of deaths where each specific substance was detected.
+
 SELECT 'heroin' AS drug,
 COUNT(*) AS death_count
 FROM toxicology_results
@@ -104,3 +107,8 @@ FROM toxicology_results
 WHERE other IS NOT NULL
 ORDER BY
 death_count DESC
+
+-- Insights:
+-- 1. Fentanyl appears most frequently in fatal cases.
+-- 2. Heroin and cocaine are also among the top substances.
+-- 3. Poly-drug presence is common in overdoses, highlighting the complexity of substance abuse.

@@ -1,3 +1,7 @@
+-- Description:
+-- This query identifies the most common substance detected in fatal overdoses for each city.
+-- It aggregates toxicology results by city and substance, then selects the highest-occurrence substance per city.
+
 WITH city_and_drugs_cte AS
 (
 SELECT vp.death_city AS city, 'heroin' AS drug, COUNT(*) AS death_count
@@ -177,18 +181,23 @@ GROUP BY vp.death_city
 rn_cte AS
 (
 SELECT
-state,
+city,
 drug,
 death_count,
 ROW_NUMBER() OVER(
-    PARTITION BY state
+    PARTITION BY city
     ORDER BY death_count DESC
     ) AS rn
-FROM states_and_drugs_cte
+FROM city_and_drugs_cte
 )
 SELECT 
-state,
+city,
 drug,
 death_count
 FROM rn_cte
 WHERE rn = 1
+
+-- Insights:
+-- 1. Fentanyl is the most common substance involved in fatal overdoses across most cities, often by a wide margin.
+-- 2. Cities like Hartford, New Haven, and Bridgeport show high counts not only for fentanyl but also for any_opioid and heroin, suggesting frequent multi-drug overdoses.
+
